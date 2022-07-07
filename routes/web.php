@@ -1,14 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Schema;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\Cache\AllClearController;
-use App\Http\Controllers\Frontend\HomePageController;
-use App\Http\Controllers\Frontend\PostPageController;
 use App\Http\Controllers\Scrape\AlterScrapeController;
 use App\Http\Controllers\Scrape\WhoIsScrapeController;
-use App\Http\Controllers\Frontend\ContentPageController;
 use App\Http\Controllers\Scrape\AlexaRankScrapeController;
 use App\Http\Controllers\Scrape\DnsRecordScrapeController;
 use App\Http\Controllers\Scrape\DuplicateCheckerController;
@@ -30,9 +26,9 @@ use App\Http\Controllers\Settings\SettingsRecordsUpdateController;
 |
  */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::get('alter-scrape', [AlterScrapeController::class, 'alter_scrape']);
 Route::get('wappalyzer-scrape', [WappalyzerScrapeController::class, 'wappalyzer_scrape']);
@@ -54,11 +50,11 @@ Route::get('sql-update', SettingsRecordsUpdateController::class);
 
 Route::get('test', [TestController::class, 'test']);
 
-Route::get('/', [HomePageController::class, 'index'])->name('home.index');
+// Route::get('/', [HomePageController::class, 'index'])->name('home.index');
 
-Route::get('/page/{post:slug}', [ContentPageController::class, 'index'])->name('page.show');
+// Route::get('/page/{post:slug}', [ContentPageController::class, 'index'])->name('page.show');
 
-if (Schema::hasTable('nova_settings')) {
+// if (Schema::hasTable('nova_settings')) {
 
-    Route::get((!empty(nova_get_setting('permalink_prefix')) ? nova_get_setting('permalink_prefix') : "Similar") . '/{post:slug}', [PostPageController::class, 'index'])->name('post.show');
-}
+//     Route::get((!empty(nova_get_setting('permalink_prefix')) ? nova_get_setting('permalink_prefix') : "Similar") . '/{post:slug}', [PostPageController::class, 'index'])->name('post.show');
+// }
