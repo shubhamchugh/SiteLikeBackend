@@ -12,6 +12,7 @@ use App\Http\Controllers\Scrape\IpLocationScrapeController;
 use App\Http\Controllers\Scrape\ScreenshotScrapeController;
 use App\Http\Controllers\Scrape\WappalyzerScrapeController;
 use App\Http\Controllers\Scrape\SeoAnalyzerScrapeController;
+use App\Http\Controllers\Upgrade\ApplicationUpgradeController;
 use App\Http\Controllers\Scrape\SslCertificateScrapeController;
 use App\Http\Controllers\Settings\SettingsRecordsUpdateController;
 
@@ -30,6 +31,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('clear', [AllClearController::class, 'clear']);
+
+Route::get('sql-update', SettingsRecordsUpdateController::class);
+
+Route::get('upgrade', [ApplicationUpgradeController::class, 'clear']);
+
 Route::get('alter-scrape', [AlterScrapeController::class, 'alter_scrape']);
 Route::get('wappalyzer-scrape', [WappalyzerScrapeController::class, 'wappalyzer_scrape']);
 Route::get('ssl-scrape', [SslCertificateScrapeController::class, 'ssl_certificate_scrape']);
@@ -44,9 +52,6 @@ Route::get('duplicate-check', [DuplicateCheckerController::class, 'publish_dupli
 
 // Route::get('scrape', [FullScrapingController::class, 'scrape']);
 
-Route::get('clear', [AllClearController::class, 'clear']);
-
-Route::get('sql-update', SettingsRecordsUpdateController::class);
 
 Route::get('test', [TestController::class, 'test']);
 
