@@ -36,7 +36,7 @@ Route::get('clear', [AllClearController::class, 'clear']);
 
 Route::get('sql-update', SettingsRecordsUpdateController::class);
 
-Route::get('upgrade', [ApplicationUpgradeController::class, 'clear']);
+Route::get('upgrade', ApplicationUpgradeController::class);
 
 Route::get('alter-scrape', [AlterScrapeController::class, 'alter_scrape']);
 Route::get('wappalyzer-scrape', [WappalyzerScrapeController::class, 'wappalyzer_scrape']);
