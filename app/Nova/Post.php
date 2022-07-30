@@ -30,6 +30,13 @@ class Post extends Resource
     public static $group = 'Post Management';
 
     /**
+ * The relationships that should be eager loaded on index queries.
+ *
+ * @var array
+ */
+    public static $with = ['seo_analyzers_relation','ip_record_relation','Ssl_Details_relation'];
+
+    /**
      * The model the resource corresponds to.
      *
      * @var string
@@ -151,7 +158,6 @@ class Post extends Resource
      */
     public function fields(NovaRequest $request)
     {
-
         $options = [
             'heading',
             '|',
@@ -188,7 +194,7 @@ class Post extends Resource
         return [
             ID::make()->asBigInt()->sortable(),
 
-            Text::make('Title', 'title')->nullable()->sortable(),
+            Text::make('Title', 'title')->nullable(),
             Text::make('Ip Address', 'ip')->nullable()->placeholder('127.0.0.1'),
             Slug::make('Slug', 'slug')
                 ->from('title')

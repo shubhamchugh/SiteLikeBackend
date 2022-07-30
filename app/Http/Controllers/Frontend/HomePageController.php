@@ -11,7 +11,6 @@ class HomePageController extends Controller
 {
     public function index()
     {
-
         $posts = Post::with(
             'seo_analyzers_relation',
             'ip_record_relation',
