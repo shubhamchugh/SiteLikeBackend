@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Upgrade;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Artisan;
 
 class ApplicationUpgradeController extends Controller
