@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\View\View;
 use Illuminate\Http\Request;
 
 class TestController extends Controller
 {
     public function test(Request $requet)
     {
-
+        // $status_pluck = \App\Models\Post::select('status')->distinct()->get();
+        // return View('welcome', $status_pluck);
         // $domain = "http://technofizi.net";
         // $ss     = "wappalyzer $domain";
 
@@ -60,6 +62,5 @@ class TestController extends Controller
         // SSLTABLE::create([
         //     'expirationDate' => $certificate->expirationDate(),
         // ]);
-
     }
 }
