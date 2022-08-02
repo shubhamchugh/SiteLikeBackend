@@ -11,23 +11,7 @@ class SeoAnalyzer extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'post_id',
-        'title',
-        'description',
-        'language',
-        'loadtime',
-        'codeToTxtRatio',
-        'word_count',
-        'keywords',
-        'longTailKeywords',
-        'headers',
-        'links',
-        'images',
-        'domain_title',
-        'domain_description',
-
-    ];
+    protected $guarded = ['id'];
 
     protected $casts = [
         'keywords'         => Json::class,
@@ -46,5 +30,4 @@ class SeoAnalyzer extends Model
     {
         return $this->belongsTo(Post::class, 'post_id', 'id');
     }
-
 }

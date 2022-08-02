@@ -10,19 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class SslCertificate extends Model
 {
     use HasFactory;
-
-    protected $fillable = [
-        'post_id',
-        'issuer',
-        'getSignatureAlgorithm',
-        'getOrganization',
-        'getAdditionalDomains',
-        'getFingerprint',
-        'getFingerprintSha256',
-        'validFromDate',
-        'expirationDate',
-        'isValid',
-    ];
+    protected $guarded = ['id'];
 
     protected $casts = [
         'validFromDate'        => 'datetime',

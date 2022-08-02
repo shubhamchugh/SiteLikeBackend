@@ -9,17 +9,7 @@ class Attribute extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'post_id',
-        'alexa_rank',
-        'alexa_country',
-        'alexa_country_code',
-        'alexa_country_rank',
-        'sitejabber_ranking',
-        'trustpilot_ranking',
-        'zoutons_ranking',
-        'mywot_ranking',
-    ];
+    protected $guarded = ['id'];
 
     /**
      * Get the user that owns the DnsDetail

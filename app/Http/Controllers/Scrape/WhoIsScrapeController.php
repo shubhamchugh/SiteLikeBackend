@@ -14,6 +14,7 @@ class WhoIsScrapeController extends Controller
         $status = !empty($request->status) ? $request->status : "pending";
 
         $domain = Post::where('is_whois', $status)
+                ->select('slug', 'id')
           //  ->where('post_type', 'listing')
           //  ->orderBy('status', 'ASC')
             ->first();

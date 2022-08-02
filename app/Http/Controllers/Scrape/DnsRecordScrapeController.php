@@ -14,9 +14,10 @@ class DnsRecordScrapeController extends Controller
         $status = !empty($request->status) ? $request->status : "pending";
 
         $domain = Post::where('is_dns', $status)
+                ->select('slug', 'id')
            // ->where('post_type', 'listing')
            // ->orderBy('status', 'ASC')
-            ->first();
+                ->first();
 
         if (empty($domain)) {
             return "No Record Found Please check Database";

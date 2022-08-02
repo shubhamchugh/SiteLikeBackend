@@ -16,30 +16,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Post extends Model
 {
     use HasFactory;
+
     use SoftDeletes;
 
-    protected $fillable = [
-        'title',
-        'slug',
-        'ip',
-        'status',
-        'post_type',
-        'up_down',
-        'thumbnail',
-        'favicon',
-        'content',
-        'page_views',
-        'is_index_google',
-        'is_index_bing',
-        'is_wappalyzer',
-        'is_ssl',
-        'is_alexa',
-        'is_seo_analyzer',
-        'is_whois',
-        'is_dns',
-        'is_ip_location',
-        'is_screenshot',
-    ];
+    protected $guarded = ['id'];
 
     public function technologies()
     {
@@ -78,6 +58,6 @@ class Post extends Model
 
     public function domain_alternative()
     {
-        return $this->belongsToMany(SELF::class, 'post_alternatives', 'post_id', 'post_alternate_id');
+        return $this->belongsToMany(self::class, 'post_alternatives', 'post_id', 'post_alternate_id');
     }
 }

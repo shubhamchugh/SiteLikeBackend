@@ -2,18 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class PostAlternative extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'post_id',
-        'post_alternate_id',
-    ];
-    
+    protected $guarded = ['id'];
+
     public function posts_relation()
     {
         return $this->belongsTo(Post::class, 'post_id', 'id');

@@ -15,9 +15,10 @@ class IpLocationScrapeController extends Controller
         $status = !empty($request->status) ? $request->status : "pending";
 
         $domain = Post::where('is_ip_location', $status)
+                ->select('slug', 'ip', 'id')
             //->where('post_type', 'listing')
             //->orderBy('status', 'ASC')
-            ->first();
+                ->first();
 
         if (empty($domain)) {
             return "No Record Found Please check Database";

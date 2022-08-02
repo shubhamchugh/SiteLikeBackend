@@ -3,18 +3,13 @@
 namespace App\Models;
 
 use App\Models\Post;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Technology extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'slug',
-        'name',
-        'icon',
-        'website',
-    ];
+    protected $guarded = ['id'];
 
     public function posts()
     {

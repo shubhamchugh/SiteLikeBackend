@@ -14,6 +14,7 @@ class AlexaRankScrapeController extends Controller
         $status = !empty($request->status) ? $request->status : "pending";
 
         $domain = Post::where('is_alexa', $status)
+            ->select('slug', 'id', 'is_alexa')
             //->where('post_type', 'listing')
             //->orderBy('status', 'ASC')
             ->first();

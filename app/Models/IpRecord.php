@@ -10,12 +10,7 @@ class IpRecord extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'post_id',
-        'country_name',
-        'country_code',
-    ];
-
+    protected $guarded = ['id'];
     /**
      * Get the user that owns the DnsDetail
      *

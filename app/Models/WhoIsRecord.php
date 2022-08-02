@@ -11,20 +11,7 @@ class WhoIsRecord extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'post_id',
-        'text',
-        'whoisServer',
-        'nameServers',
-        'creationDate',
-        'expirationDate',
-        'updatedDate',
-        'states',
-        'owner',
-        'registrar',
-        'dnssec',
-
-    ];
+    protected $guarded = ['id'];
 
     protected $casts = [
         'states'      => Json::class,

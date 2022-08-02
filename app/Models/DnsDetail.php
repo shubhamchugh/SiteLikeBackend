@@ -9,19 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class DnsDetail extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'A',
-        'AAAA',
-        'CNAME',
-        'NS',
-        'SOA',
-        'MX',
-        'SRV',
-        'TXT',
-        'CAA',
-        'post_id',
-    ];
-
+    protected $guarded = ['id'];
     /**
      * Get the user that owns the DnsDetail
      *

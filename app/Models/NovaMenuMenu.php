@@ -10,6 +10,5 @@ class NovaMenuMenu extends Model
     use HasFactory;
 
     protected $table    = 'nova_menu_menus';
-    protected $fillable = ['name', 'slug', 'lname', 'email', 'phone', 'msg'];
-
+    protected $guarded = ['id'];
 }
