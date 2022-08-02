@@ -14,8 +14,8 @@ class ScreenshotScrapeController extends Controller
         $status = !empty($request->status) ? $request->status : "pending";
 
         $domain = Post::where('is_screenshot', $status)
-            ->where('post_type', 'listing')
-            ->orderBy('status', 'ASC')
+            //->where('post_type', 'listing')
+            //->orderBy('status', 'ASC')
             ->first();
 
         if (empty($domain)) {

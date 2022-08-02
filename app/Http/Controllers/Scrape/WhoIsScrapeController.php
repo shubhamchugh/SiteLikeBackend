@@ -11,12 +11,11 @@ class WhoIsScrapeController extends Controller
 {
     public function who_is_scrape(Request $request)
     {
-
         $status = !empty($request->status) ? $request->status : "pending";
 
         $domain = Post::where('is_whois', $status)
-            ->where('post_type', 'listing')
-            ->orderBy('status', 'ASC')
+          //  ->where('post_type', 'listing')
+          //  ->orderBy('status', 'ASC')
             ->first();
 
         if (empty($domain)) {
@@ -66,6 +65,5 @@ class WhoIsScrapeController extends Controller
             'is_whois' => 'done',
         ]);
         return $whois_store;
-
     }
 }
