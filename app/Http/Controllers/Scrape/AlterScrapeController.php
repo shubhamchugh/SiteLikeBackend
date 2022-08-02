@@ -32,7 +32,7 @@ class AlterScrapeController extends Controller
             $domain_source->update([
                 'status' => 'InValid_Domain',
             ]);
-            echo "InValid_Domain";
+            echo "InValid_Domain $primary_domain[url]";
             die;
         }
 
@@ -42,6 +42,7 @@ class AlterScrapeController extends Controller
             $post_exist->update([
                 'status' => 'publish',
             ]);
+            echo "<br>Already Post In Database and Publishing $primary_domain[url] in Post table<br>";
             $primary_domain_id = $post_exist->id;
         } else {
             $primary_domain_result = Post::firstOrCreate([
