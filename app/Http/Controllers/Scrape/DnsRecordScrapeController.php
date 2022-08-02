@@ -44,7 +44,7 @@ class DnsRecordScrapeController extends Controller
             die;
         }
 
-        $dns_records_store = DnsDetail::updateOrCreate(['post_id' => $domain->id], [
+        $dns_records_store = DnsDetail::firstOrCreate(['post_id' => $domain->id], [
             'A'     => (!empty($dns_records['A'])) ? $dns_records['A'] : null,
             'AAAA'  => (!empty($dns_records['AAAA'])) ? $dns_records['AAAA'] : null,
             'CNAME' => (!empty($dns_records['CNAME'])) ? $dns_records['CNAME'] : null,
@@ -60,11 +60,9 @@ class DnsRecordScrapeController extends Controller
         ]);
 
         if (!empty($dns_records['ip'])) {
-
             Post::updateOrCreate(['id' => $domain->id], [
                 'ip' => (!empty($dns_records['ip']['ip'])) ? $dns_records['ip']['ip'] : null,
             ]);
-
         }
 
         return $dns_records_store;

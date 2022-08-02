@@ -11,7 +11,6 @@ class SslCertificateScrapeController extends Controller
 {
     public function ssl_certificate_scrape(Request $request)
     {
-
         $status = !empty($request->status) ? $request->status : "pending";
 
         $domain = Post::where('is_ssl', $status)
@@ -45,7 +44,7 @@ class SslCertificateScrapeController extends Controller
             die;
         }
 
-        $ssl_store = SslCertificate::updateOrCreate(['post_id' => $domain->id], [
+        $ssl_store = SslCertificate::firstOrCreate(['post_id' => $domain->id], [
             'issuer'                => (!empty($ssl['getIssuer'])) ? $ssl['getIssuer'] : null,
             'getSignatureAlgorithm' => (!empty($ssl['getSignatureAlgorithm'])) ? $ssl['getSignatureAlgorithm'] : null,
             'getOrganization'       => (!empty($ssl['getOrganization'])) ? $ssl['getOrganization'] : null,
@@ -60,6 +59,5 @@ class SslCertificateScrapeController extends Controller
             'is_ssl' => 'done',
         ]);
         return $ssl_store;
-
     }
 }

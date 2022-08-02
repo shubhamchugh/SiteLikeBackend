@@ -32,6 +32,7 @@ class AlterScrapeController extends Controller
             $domain_source->update([
                 'status' => 'InValid_Domain',
             ]);
+            echo "InValid_Domain";
             die;
         }
 
@@ -53,11 +54,9 @@ class AlterScrapeController extends Controller
         $alter = Get_Alter::site_like_scrape($primary_domain['url']);
 
         if ('OK' == $alter['status']) {
-
             $i = 1;
             echo "<h1>Domain Added or Get Id</h1>";
             foreach ($alter['alter'] as $domain_alter) {
-
                 $domain_alter = Get_Domain::get_registrableDomain(trim($domain_alter));
                 $post[]       = Post::firstOrCreate([
                     'slug' => $domain_alter['url'],
@@ -70,20 +69,17 @@ class AlterScrapeController extends Controller
             $i = 1;
             echo "<h1>Relation Created</h1>";
             foreach ($post as $post_data) {
-
                 PostAlternative::firstOrCreate([
                     'post_id'           => $primary_domain_id,
                     'post_alternate_id' => $post_data->id,
                 ]);
                 $count = $i++;
                 echo "$count: $primary_domain_id ----> $post_data->id<br>";
-
             }
         }
 
         $domain_source->update([
             'status' => 'success',
         ]);
-
     }
 }

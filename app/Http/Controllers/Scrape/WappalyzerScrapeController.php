@@ -52,7 +52,7 @@ class WappalyzerScrapeController extends Controller
 
         echo "<h1>Technology in DataBase</h1>";
         foreach ($wappalyzer['technologies'] as $technology) {
-            $technology_database = Technology::updateOrCreate([
+            $technology_database = Technology::firstOrCreate([
                 'name'    => (!empty($technology['name'])) ? $technology['name'] : null,
                 'slug'    => $technology['slug'],
                 'website' => (!empty($technology['website'])) ? $technology['website'] : null,
@@ -62,7 +62,7 @@ class WappalyzerScrapeController extends Controller
 
             echo "$technology_database->id: $technology_database->name<br>";
 
-            TechnologyPostRelation::updateOrCreate([
+            TechnologyPostRelation::firstOrCreate([
                 'post_id'       => $domain->id,
                 'technology_id' => $technology_database_id,
                 'confidence'    => (!empty($technology['confidence'])) ? $technology['confidence'] : null,
@@ -74,6 +74,5 @@ class WappalyzerScrapeController extends Controller
         $domain->update([
             'is_wappalyzer' => 'done',
         ]);
-
     }
 }
