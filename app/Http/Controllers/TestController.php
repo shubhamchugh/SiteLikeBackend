@@ -4,11 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Spatie\Browsershot\Browsershot;
+use Illuminate\Support\Facades\Http;
 
 class TestController extends Controller
 {
     public function test(Request $requet)
     {
+        $domain ='technofizi.net';
+        $sourceDomain = 'https://www.sitelike.org/similar/' . $domain . '/';
+
+
+         $html =   Browsershot::url($sourceDomain)
+                                ->userAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36')
+                                ->noSandbox()
+                                ->bodyHtml();
+
+       // $html = Http::get($sourceDomain)->body();
+
+        dd($html);
         // $status_pluck = \App\Models\Post::select('status')->distinct()->get();
         // return View('welcome', $status_pluck);
         // $domain = "http://technofizi.net";

@@ -2,6 +2,7 @@
 
 namespace App\Helpers\Scrape;
 
+use Spatie\Browsershot\Browsershot;
 use Illuminate\Support\Facades\Http;
 
 class Get_Alter
@@ -11,8 +12,12 @@ class Get_Alter
 
         $sourceDomain = 'https://www.sitelike.org/similar/' . $domain . '/';
 
-        $html = Http::get($sourceDomain)->body();
-
+        $html = Browsershot::url($sourceDomain)
+        ->userAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36')
+        ->noSandbox()
+        ->bodyHtml();
+        
+        
         $response = new \DOMDocument();
         libxml_use_internal_errors(true); //disable libxml errors
 

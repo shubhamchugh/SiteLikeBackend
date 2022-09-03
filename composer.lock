@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "82e7a85dd70b09da25b7fd312ead4526",
+    "content-hash": "692502b54484c2c3b34bd5a4ff5f7076",
     "packages": [
         {
             "name": "artesaos/seotools",
@@ -6223,16 +6223,16 @@
         },
         {
             "name": "spatie/browsershot",
-            "version": "3.57.0",
+            "version": "3.57.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/browsershot.git",
-                "reference": "b608ee8af5152c2a24363561024e9ead4eb9b1de"
+                "reference": "7125719979b7de1257bbf699ff1d3bff3125b228"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/browsershot/zipball/b608ee8af5152c2a24363561024e9ead4eb9b1de",
-                "reference": "b608ee8af5152c2a24363561024e9ead4eb9b1de",
+                "url": "https://api.github.com/repos/spatie/browsershot/zipball/7125719979b7de1257bbf699ff1d3bff3125b228",
+                "reference": "7125719979b7de1257bbf699ff1d3bff3125b228",
                 "shasum": ""
             },
             "require": {
@@ -6277,8 +6277,7 @@
                 "webpage"
             ],
             "support": {
-                "issues": "https://github.com/spatie/browsershot/issues",
-                "source": "https://github.com/spatie/browsershot/tree/3.57.0"
+                "source": "https://github.com/spatie/browsershot/tree/3.57.2"
             },
             "funding": [
                 {
@@ -6286,7 +6285,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-06-28T13:49:41+00:00"
+            "time": "2022-08-19T16:43:07+00:00"
         },
         {
             "name": "spatie/dns",
