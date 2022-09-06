@@ -12,5 +12,8 @@ class Settings extends Model
     protected $table   = 'nova_settings';
     public $timestamps = false;
 
-    protected $guarded = ['id'];
+    protected $fillable = [
+        'key',
+        'value',
+    ];
 }

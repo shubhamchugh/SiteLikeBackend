@@ -12,7 +12,14 @@ class TechnologyPostRelation extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id'];
+    protected $fillable = [
+        'post_id',
+        'technology_id',
+        'confidence',
+        'version',
+        'created_at',
+        'updated_at'
+    ];
 
     public function posts_relation()
     {

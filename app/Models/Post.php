@@ -19,7 +19,31 @@ class Post extends Model
 
     use SoftDeletes;
 
-    protected $guarded = ['id'];
+    protected $fillable = [
+        'title',
+        'slug',
+        'ip',
+        'status',
+        'post_type',
+        'up_down',
+        'thumbnail',
+        'favicon',
+        'content',
+        'page_views',
+        'is_index_google',
+        'is_index_bing',
+        'is_wappalyzer',
+        'is_ssl',
+        'is_alexa',
+        'is_seo_analyzer',
+        'is_whois',
+        'is_dns',
+        'is_ip_location',
+        'is_screenshot',
+        'deleted_at',
+        'created_at',
+        'updated_at',
+    ];
 
     public function technologies()
     {

@@ -9,5 +9,10 @@ class SourceDomain extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id'];
+    protected $fillable = [
+        'domain',
+        'status',
+        'created_at',
+        'updated_at'
+    ];
 }

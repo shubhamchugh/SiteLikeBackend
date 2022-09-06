@@ -9,7 +9,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Technology extends Model
 {
     use HasFactory;
-    protected $guarded = ['id'];
+    protected $fillable = [
+        'name',
+        'slug',
+        'icon',
+        'website',
+        'description',
+        'count',
+        'created_at',
+        'updated_at'
+    ];
 
     public function posts()
     {
