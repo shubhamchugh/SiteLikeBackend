@@ -45,10 +45,11 @@ class ScreenshotScrapeController extends Controller
             die;
         }
 
-        $screenshot_store = Post::firstOrCreate(['id' => $domain->id], [
+        $screenshot_store = Post::updateOrCreate(['id' => $domain->id], [
             'thumbnail' => (!empty($screenshot['thumbnail'])) ? $screenshot['thumbnail'] : null,
             'favicon'   => (!empty($screenshot['favicon'])) ? $screenshot['favicon'] : null,
         ]);
+       
         $domain->update([
             'is_screenshot' => 'done',
         ]);

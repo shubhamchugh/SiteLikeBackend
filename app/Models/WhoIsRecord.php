@@ -13,9 +13,16 @@ class WhoIsRecord extends Model
 
    protected $fillable = [
     'post_id',
-    'technology_id',
-    'confidence',
-    'version',
+    'text',
+    'whoisServer',
+    'nameServers',
+    'creationDate',
+    'expirationDate',
+    'updatedDate',
+    'states',
+    'owner',
+    'registrar',
+    'dnssec',
     'created_at',
     'updated_at'
    ];

@@ -28,7 +28,7 @@ class WhoIsScrapeController extends Controller
         ]);
 
         $whois = whois($domain->slug);
-
+        
         if (empty($whois) && 'pending' !== $status) {
             $domain->update([
                 'is_whois' => 'discard',
@@ -46,9 +46,10 @@ class WhoIsScrapeController extends Controller
         }
 
         $whois_info = $whois['info'];
+      
         $whois_info = $whois_info->toArray();
-
-        $whois_store = WhoIsRecord::updateOrCreate(['post_id' => $domain->id], [
+        
+        $whois_store = WhoIsRecord::firstOrCreate(['post_id' => $domain->id], [
 
             'text'           => (!empty($whois['text'])) ? $whois['text'] : null,
             'whoisServer'    => (!empty($whois_info['whoisServer'])) ? $whois_info['whoisServer'] : null,
