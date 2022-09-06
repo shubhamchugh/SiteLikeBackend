@@ -45,7 +45,7 @@ class SeoAnalyzerScrapeController extends Controller
             die;
         }
 
-        $seo_analyzer_store = SeoAnalyzer::firstOrCreate(['post_id' => $domain->id], [
+        $seo_analyzer_store = SeoAnalyzer::updateOrCreate(['post_id' => $domain->id], [
             'language'           => (!empty($seoAnalyzer['language'])) ? $seoAnalyzer['language'] : null,
             'loadtime'           => (!empty($seoAnalyzer['loadtime'])) ? $seoAnalyzer['loadtime'] : null,
             'codeToTxtRatio'     => (!empty($seoAnalyzer['full_page']['codeToTxtRatio']['ratio'])) ? $seoAnalyzer['full_page']['codeToTxtRatio']['ratio'] : null,

@@ -46,7 +46,7 @@ class IpLocationScrapeController extends Controller
             die;
         }
 
-        $ip_location_store = IpRecord::firstOrCreate(['post_id' => $domain->id], [
+        $ip_location_store = IpRecord::updateOrCreate(['post_id' => $domain->id], [
             'country_name' => (!empty($ip_location->countryName)) ? $ip_location->countryName : null,
             'country_code' => (!empty($ip_location->countryCode)) ? $ip_location->countryCode : null,
         ]);

@@ -45,7 +45,7 @@ class AlexaRankScrapeController extends Controller
             die;
         }
 
-        $alexa_detail_store = Attribute::firstOrCreate(['post_id' => $domain->id], [
+        $alexa_detail_store = Attribute::updateOrCreate(['post_id' => $domain->id], [
             'alexa_rank'         => (!empty($alexa['globalRank'][0])) ? $alexa['globalRank'][0] : null,
             'alexa_country'      => (!empty($alexa['CountryRank']['@attributes']['NAME'])) ? $alexa['CountryRank']['@attributes']['NAME'] : null,
             'alexa_country_code' => (!empty($alexa['CountryRank']['@attributes']['CODE'])) ? $alexa['CountryRank']['@attributes']['CODE'] : null,
