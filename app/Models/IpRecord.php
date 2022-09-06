@@ -14,7 +14,7 @@ class IpRecord extends Model
         'post_id',
         'country_name',
         'country_code',
-    ]
+    ];
     /**
      * Get the user that owns the DnsDetail
      *

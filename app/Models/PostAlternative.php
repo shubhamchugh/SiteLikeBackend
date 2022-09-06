@@ -11,8 +11,7 @@ class PostAlternative extends Model
 
    protected $fillable = [
     'post_id',
-    'country_name',
-    'country_code',
+    'post_alternate_id',
     'created_at',
     'updated_at'
    ];
