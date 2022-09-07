@@ -15,10 +15,13 @@ class Get_Screenshot
         try {
             $http_request = Browsershot::url($httpUrl);
 
-            $screenshot = $http_request->ignoreHttpsErrors()->fit(Manipulations::FIT_CONTAIN, 460, 306)->screenshot();
+            $screenshot = $http_request->ignoreHttpsErrors()
+                ->fit(Manipulations::FIT_CONTAIN, 460, 306)
+                ->noSandbox()
+                ->screenshot();
 
         } catch (\Throwable$th) {
-            //throw $th;
+            throw $th;
             $screenshot = false;
         }
 

@@ -32,7 +32,7 @@ class WappalyzerScrapeController extends Controller
         $primary_domain = Get_Domain::get_registrableDomain($domain->slug);
 
         $wappalyzer = shell_exec("wappalyzer $primary_domain[httpUrl]");
-      
+
         $wappalyzer = json_decode($wappalyzer, true);
 
         if (empty($wappalyzer['technologies']) && 'pending' !== $status) {
