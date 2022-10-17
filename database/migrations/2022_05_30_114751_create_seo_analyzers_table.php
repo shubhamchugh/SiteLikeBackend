@@ -20,11 +20,11 @@ class CreateSeoAnalyzersTable extends Migration
             $table->string('loadtime')->nullable();
             $table->string('codeToTxtRatio')->nullable();
             $table->string('word_count')->nullable();
-            $table->json('keywords')->nullable();
-            $table->json('longTailKeywords')->nullable();
-            $table->json('headers')->nullable();
-            $table->json('links')->nullable();
-            $table->json('images')->nullable();
+            $table->text('keywords')->nullable();
+            $table->text('longTailKeywords')->nullable();
+            $table->text('headers')->nullable();
+            $table->text('links')->nullable();
+            $table->text('images')->nullable();
             $table->text('domain_title')->nullable();
             $table->text('domain_description')->nullable();
             $table->timestamps();

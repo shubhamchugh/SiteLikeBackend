@@ -11,6 +11,7 @@ use App\Http\Controllers\Scrape\DuplicateCheckerController;
 use App\Http\Controllers\Scrape\IpLocationScrapeController;
 use App\Http\Controllers\Scrape\ScreenshotScrapeController;
 use App\Http\Controllers\Scrape\WappalyzerScrapeController;
+use App\Http\Controllers\DataConvert\SeoAnalyzerDataConvert;
 use App\Http\Controllers\Scrape\SeoAnalyzerScrapeController;
 use App\Http\Controllers\Upgrade\ApplicationUpgradeController;
 use App\Http\Controllers\Scrape\SslCertificateScrapeController;
@@ -49,6 +50,11 @@ Route::get('ip-location-scrape', [IpLocationScrapeController::class, 'ip_locatio
 Route::get('screenshot-scrape', [ScreenshotScrapeController::class, 'screenshot_scrape']);
 
 Route::get('duplicate-check', [DuplicateCheckerController::class, 'publish_duplicate']);
+
+Route::get('seo-analyzer-convert-keywords',[SeoAnalyzerDataConvert::class,'keywords'])->name('convert.short');
+Route::get('seo-analyzer-convert-long-tail-keywords',[SeoAnalyzerDataConvert::class,'long_tail_keywords'])->name('convert.long_tail_keywords');
+Route::get('seo-analyzer-convert-links',[SeoAnalyzerDataConvert::class,'links'])->name('convert.links');
+Route::get('seo-analyzer-convert-images',[SeoAnalyzerDataConvert::class,'images'])->name('convert.images');
 
 // Route::get('scrape', [FullScrapingController::class, 'scrape']);
 

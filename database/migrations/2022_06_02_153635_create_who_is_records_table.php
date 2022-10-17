@@ -18,11 +18,11 @@ class CreateWhoIsRecordsTable extends Migration
             $table->bigInteger('post_id')->nullable()->unsigned();
             $table->text('text')->nullable();
             $table->string('whoisServer')->nullable();
-            $table->json('nameServers')->nullable();
+            $table->text('nameServers')->nullable();
             $table->date('creationDate')->nullable();
             $table->date('expirationDate')->nullable();
             $table->date('updatedDate')->nullable();
-            $table->json('states')->nullable();
+            $table->text('states')->nullable();
             $table->string('owner')->nullable();
             $table->string('registrar')->nullable();
             $table->string('dnssec')->nullable();

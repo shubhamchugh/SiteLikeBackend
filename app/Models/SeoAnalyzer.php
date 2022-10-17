@@ -19,11 +19,14 @@ class SeoAnalyzer extends Model
         'word_count',
         'keywords',
         'longTailKeywords',
-        'headers',
         'links',
         'images',
         'domain_title',
         'domain_description',
+        'keywords_status',
+        'keywords_status',
+        'links_status',
+        'images_status',
         'created_at',
         'updated_at'
     ];
