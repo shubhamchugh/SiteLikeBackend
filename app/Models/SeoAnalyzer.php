@@ -24,7 +24,7 @@ class SeoAnalyzer extends Model
         'domain_title',
         'domain_description',
         'keywords_status',
-        'keywords_status',
+        'longTailKeywords_status',
         'links_status',
         'images_status',
         'created_at',
